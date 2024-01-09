@@ -17,11 +17,11 @@ const Roomentry = ({socket}) => {
   return (
     <>
     <label htmlFor="email">email</label>
-   <input type="email" id='email' name='email' onChange={(e)=>{setemail(e.target.value)}}>
+   <input value={"ioo"} type="email" id='email' name='email' onChange={(e)=>{setemail(e.target.value)}}>
    
    </input>
    <label htmlFor="room">room</label>
-   <input type="number" id='room' name='room' onChange={(e)=>{setroom(e.target.value)}}>
+   <input value={90} type="number" id='room' name='room' onChange={(e)=>{setroom(e.target.value)}}>
     
    </input>
    <input type="button" onClick={handleclick}>

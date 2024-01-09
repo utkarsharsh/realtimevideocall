@@ -18,9 +18,16 @@ io.on("connection", (socket) => {
 socket.on("usercallingto",({to,offer})=>{
   io.to(to).emit("callutha",{from:socket.id,offer});
 })
-
-
-
+socket.on("answerofcall",({to,ans})=>{
+  console.log("answer",ans);
+  io.to(to).emit("accepted",{from :socket.id,ans});
+  
+})
+socket.on("nego:need",({to,offer})=>{
+  io.to(to).emit("nego:needed",{from :socket.id,offer});
+})
+socket.on("nego:last",({to,ans})=>{
+  io.to(to).emit("nego:lasted",{from :socket.id,ans});
 });
-
+});
 httpServer.listen(3000);
