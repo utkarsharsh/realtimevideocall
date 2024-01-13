@@ -1,0 +1,279 @@
+.container{
+    display: flex;
+    height: 100dvh;
+    justify-content: center;
+    align-items: center;
+    
+   /* background-image: linear-gradient( 200deg, #434542, #574945); */
+} 
+.login{
+    display: flex;
+    width: 67%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+.login::-webkit-scrollbar{
+    display: none;
+}
+.loginleft{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background-color: #A4B99C;
+}
+.loginleft img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.loginright{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FEFFFE;
+    justify-content: center;
+    position: relative;
+
+}
+.loginright button{
+  cursor: pointer;
+  background-color: #282A27;
+  color: white;
+  border-radius: 30px;
+  width: 98px;
+  height: 33px;
+}
+.loginright input{
+    outline: none;
+    width: 100%;
+    margin-top: 0px;
+    border-style: none;
+    border-bottom: 2px solid #d8d7d7 ;
+}
+.loginright fieldset{
+    width: 60%;
+    outline: none;
+    border-style: none;
+    height: 20px;
+    margin-top: 12px;
+}
+.logoname{
+    /* margin-top: 40px; */
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lemon', serif;
+font-family: 'Young Serif', serif;
+font-family: 'Ysabeau', sans-serif;
+}
+.logoname h1{
+    font-size: 2rem;
+}
+.welcome{
+   position: absolute;
+   top: 144px;;
+    margin: 12px;
+    color: #838482;
+    font-family: 'Lemon', serif;
+font-family: 'Young Serif', serif;
+font-family: 'Ysabeau', sans-serif;
+}
+.input{
+    display: flex;
+   justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+   margin-top: 155px;
+}
+.input input{
+padding : 2px;
+padding-left: 3px;
+font-weight:600;
+
+
+}
+.generateroom{
+    width: 60%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.generateroom p{
+    align-self: flex-start;
+    color: #259737;
+    cursor: pointer;
+}
+.github{
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #838482;
+}
+.or p{
+    margin-bottom: 0px;
+    margin-top: 42px; 
+    color:#838482;
+}
+.google p{
+    margin-top: 20px;
+    color:#838482;
+}
+legend{
+    color: #838482;
+}
+
+.login img{
+    display: none;
+}
+
+.bubulles{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    z-index: -70;
+}
+.bubulles span
+{
+width: 20px;
+height: 20px;
+background: #259737;
+border-radius: 50%;
+box-shadow:0 0 0 10px #94f2a2,0 0 400px #051808,0 0 100px #972525;
+position: relative;
+left: 34px;
+top: 100px;
+animation: backgroundani 15s linear infinite;
+
+}
+
+@keyframe backgroundani{
+
+0%{
+    transform: translate(-10vh) scale(0);
+}
+100%{
+    transform: translate(-10vh) scale(1);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1150px) {
+    
+.logoname{
+    top:4%;
+    font-size: 1.4rem;
+}
+.welcome{
+    top:13%;
+    font-size: 1rem;
+}
+legend{
+    font-size: .6rem;
+}
+.or{
+    margin-top: 0%;
+}
+.or p{
+    margin-top: 1rem;
+}
+.input{
+    margin-top: 70px;
+}
+
+
+  }
+
+  @media only screen and (max-width: 650px) {
+.loginleft{
+    display: none;
+    position: relative;
+}
+.loginright{
+    width: 100%;
+    background-color: transparent;
+
+    
+}
+.login{
+    width: 95%;
+}
+.login img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -100;
+    
+   
+}
+.loginright h1
+{
+    color:wheat;
+}
+.loginright h2
+{
+    color:#FEFFFE;
+}
+.container{
+    background-color: transparent;
+}
+
+.loginright::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(2, 2, 3);
+    opacity: 0.4;
+    z-index: -50;
+
+}
+.loginright p{
+    color: whitesmoke;
+    font-weight: bold;
+}
+.input input{
+    background-color: transparent;
+    color: whitesmoke;
+}
+legend{
+    color:wheat;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.login{
+    background-color: transparent;
+}
+
+
+  }
