@@ -145,28 +145,48 @@ legend{
     top: 0px;
     left: 0px;
     z-index: -70;
+    background-color: #000000;
 }
 .bubulles span
 {
-width: 20px;
-height: 20px;
+width: 12px;
+height: 12px;
 background: #259737;
 border-radius: 50%;
-box-shadow:0 0 0 10px #94f2a2,0 0 400px #051808,0 0 100px #972525;
+box-shadow:0 0 0 10px #94f2a2,0 0 40px #cff5d5,0 0 10px #d9aeae;
 position: relative;
-left: 34px;
-top: 100px;
-animation: backgroundani 15s linear infinite;
-
+left: 11px;
+top: -100px;
+margin-left: 1.2rem;
+animation: backgroundani 7s linear infinite;
+cursor: pointer;
+z-index: -1;
 }
-
-@keyframe backgroundani{
+.bubulles span:nth-child(even){
+    width: 12px;
+height: 12px;
+background:coral;
+border-radius: 50%;
+box-shadow:0 0 0 10px rgb(239, 148, 114),0 0 30px coral,0 0  60px #f38e8e;
+position: relative;
+left: 11px;
+top: -200px;
+margin-left: 1.2rem;
+animation: backgroundani 7s linear infinite;
+}
+.tran{
+   
+    transform: translateX(1000px);
+    transition: 3s ease-in-out;
+      
+}
+@keyframes backgroundani{
 
 0%{
-    transform: translate(-10vh) scale(0);
+    transform: translateY(100vh) scale(0);
 }
 100%{
-    transform: translate(-10vh) scale(1);
+    transform: translateY(-1vh) scale(0.6);  
 }
 
 }
@@ -184,7 +204,14 @@ animation: backgroundani 15s linear infinite;
 
 
 
-
+@media only screen and (max-width: 900px) {
+.loginleft{
+    display: none;
+}
+.loginright{
+    width: 100%;
+}
+}
 @media only screen and (max-width: 1150px) {
     
 .logoname{
@@ -212,6 +239,9 @@ legend{
   }
 
   @media only screen and (max-width: 650px) {
+    .bubulles{
+        display: none;
+    }
 .loginleft{
     display: none;
     position: relative;

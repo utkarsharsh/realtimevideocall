@@ -12,13 +12,23 @@ const Roomentry = ({socket}) => {
        navigate("/video");
 
     }
-   
+    const [tran,settran]=useState(null);
+    let ar=[2,4,5,2,7,11,10,12,4,8,6,4,9,12,13,12,11,13,6,0,1,2,2,4,5];
+   const [arr,setarr]=useState([2,4,5,12,7,6,13,12,11,13,7,3,14,5,4,7,12,5,0,3,6,0,1,21,2,4,5,2,4,5,2,7,1,13,12,11,13,6,0,1,2,2,4,5,6,0,1,2,2,4,5]);
+useEffect(()=>{
 
+},[arr]);
   return (
     <>
     <div className='container'>
       <div className="bubulles">
-        <span></span>
+       {arr.map((e,index)=>{
+      return(  <span style={{animation:"backgroundani 8s linear infinite",
+    animationDelay:e+"s"}} key={index} className={tran==index ? "tran":""} onClick={()=>{
+     settran(index);
+     console.log("click");
+    }}> </span>)
+       })} 
       </div>
       <div className="login">
       <img src='https://images.pexels.com/photos/3204950/pexels-photo-3204950.jpeg' />
