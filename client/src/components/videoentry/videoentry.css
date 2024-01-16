@@ -1,0 +1,118 @@
+
+.mainbox{
+    
+    min-height: 100dvh;
+    background-color: rgb(230, 228, 228);
+
+}
+.mainboxin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+   height: 100dvh;
+}
+
+.stream{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+.mystream{
+    position:absolute;
+    left: 5px;
+    bottom: 0px;
+    
+}
+
+.player{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: gainsboro;
+    
+}
+.chatwraper{
+    width: 40%;
+    background-color: aliceblue;
+    padding: 6px;
+  margin-right: 6px;
+  border-radius: 23px;
+  display: flex;
+  flex-direction: column;
+}
+.chating{
+    width: 100%;
+    height: 90%;
+    overflow-y:auto ;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.remoteplayer
+{
+    width: 60%;
+    height: 100%;
+  padding: 6px;
+  margin-bottom: 4px;
+  overflow: hidden;
+
+}
+.preanimation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    position: relative;
+
+}
+.gif{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+video{
+    object-fit: cover;
+    border-radius: 23px;
+}
+.gif img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.call{
+    background-color: green;
+    border-radius: 23px;
+    border-style: none;
+    box-shadow: 10px,10px,10px,10px,rgb(59, 209, 59);
+    cursor: pointer;
+}
+.sendstream{
+    background-color: rgb(96, 170, 96);
+    border-radius: 23px;
+    color: azure;
+    border-style: none;
+    box-shadow: 10px,10px,10px,10px,rgb(59, 209, 59);
+    cursor: pointer;
+    width: 210px;
+    height: 35px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 100px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .preanimation{
+width: 100%;
+    }
+}

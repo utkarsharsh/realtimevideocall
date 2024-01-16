@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import peer from "../../services/peer";
+import './videoentry.css'
 const Videoenty = ({ socket }) => {
   const [stream, setstream] = useState();
 
   const [reciver, setreciver] = useState(null);
   const [buttonforcall, setbuttonforcall] = useState(null);
   const [remotestream, setremotestream] = useState();
+  const [callbtn,setcallbtn]=useState("block");
+  const [s,sets]=useState("block");
 
  let pc = new RTCPeerConnection({
     iceServers: [
@@ -49,9 +52,9 @@ const Videoenty = ({ socket }) => {
       video: true,
     });
     console.log("usercalled");
-
+  setcallbtn("none");
     setstream(a);
-   
+   sets("none");
     const offer = await peer.getOffer();
     
     socket.emit("usercallingto", { to: reciver, offer });
@@ -66,7 +69,7 @@ const Videoenty = ({ socket }) => {
     });
     
     setstream(b);
-
+    setcallbtn("none");
     setreciver(from);
     // await pc.setRemoteDescription(offer);
     const ans = await peer.getAnswer(offer);
@@ -76,12 +79,15 @@ const Videoenty = ({ socket }) => {
   }
 
   const sendStreams = async () => {
+    sets("none");
+
     const tracks = await stream.getTracks();
     // console.log("arraaay",tracks/)
     for (const track of tracks) {
       peer.peer.addTrack(track,stream);
     }
   };
+
   async function handleaccepted({ from, ans }) {
      peer.setLocalDescription(ans);
      console.log("ans accepted or not")
@@ -128,39 +134,73 @@ async function handlenegolast({from,ans}){
 
   return (
     <>
+    <div className="mainbox">
+<div className="mainboxin">
+
+  {!reciver &&  <div className="preanimation">
+<div className="gif">
+<img src="https://cdn.pixabay.com/animation/2023/06/17/12/36/12-36-04-680_512.gif"></img>
+</div>
+<h2>Waiting to join someone</h2>
+</div> }   
       <div className="button">
         {reciver && (
-          <button style={{ width: 100, height: 100 }} onClick={openmedia}>
+          <button className="call" style={{ width: 100, height: 100 ,display:callbtn} } onClick={openmedia}>
             {" "}
             Call
           </button>
         )}
-        {stream && <button onClick={sendStreams}>Send Stream</button>}
+        {stream && <button onClick={sendStreams} className="sendstream" style={{display:s}}>Send Stream</button>}
       </div>
-      <div>
+
+      <div className={stream ? "stream":""}>
         {stream && (
+          <div className="mystream" >
           <ReactPlayer
             url={stream}
             playing={true}
             muted
-            width={1000}
-            height={1000}
-          />
-        )}{" "}
-      </div>
-      <button>ppppp</button>
-      {/* <div>
-<video src={stream} muted width={100} height={100}></video>
-    </div> */}
+            width={100}
+            height={100}
+           
+                     
+          /></div>
+        )}
       {remotestream && (
+        <div className="remoteplayer">
         <ReactPlayer
           url={remotestream}
           playing={true}
-          muted
-          width={1000}
-          height={1000}
-        />
-      )}
+          muted={false}
+         width={"100%"}
+         height={"100%"}
+        /></div>
+       
+      )} 
+       {
+          remotestream && (<div className="chatwraper"> 
+         
+            <div className="chating">
+
+            </div>
+            <div className="sending">
+            <input type="text"></input>
+            <button >Send</button>
+            </div>
+          
+          
+          </div>
+            ) 
+        }
+      
+      
+      
+      
+      
+      </div>
+      </div>
+
+      </div>
     </>
   );
 };
