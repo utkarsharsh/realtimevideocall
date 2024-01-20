@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import peer from "../../services/peer";
 import './videoentry.css'
+import cross from './cross.png'
+import menu from './menu.png'
 const Videoenty = ({ socket,email,setemail }) => {
   const [callloader,setcallloader]=useState(false);
   const [stream, setstream] = useState();
   const [runanmation,setrunanimation]=useState(-1);
   const [reaction,setreaction]=useState(["😀","😛","🤢","😭","🤡","💖","👄"]);
+  const [translate,settranslate]=useState(true);
+  const [translate2,settranslate2]=useState(true);
 console.log(email);
   const [reciver, setreciver] = useState(null);
   const [buttonforcall, setbuttonforcall] = useState(null);
@@ -170,12 +174,18 @@ setrunanimation(-1);
 return(()=>{
   clearInterval(timer1);
 })
-},[runanmation])
+},[runanmation]);
+function handletrans(){
+  settranslate(!translate);
+  settranslate2(!translate2);
+}
+
 
   return (
     <>
     <div className="mainbox">
 <div className="mainboxin">
+  { remotestream &&  <>{translate ? <img src={menu} alt="chat" className="nani" onClick={handletrans}/>:<img src={cross} className="nani" alt="removechat" onClick={handletrans}/> } </>}
 
   {!reciver &&  <div className="preanimation">
 <div className="gif">
@@ -216,7 +226,7 @@ return(()=>{
         <ReactPlayer
           url={remotestream}
           playing={true}
-          muted
+          muted={false}
          width={"100%"}
          height={"100%"}
         />
@@ -231,11 +241,11 @@ return(()=>{
 
 
        {
-          remotestream && (<div className="chatwraper"> 
+          remotestream && (<div className={translate2? "chatwraper":"chatwraper check" }> 
          <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
             <div className="chating">
    {chat.map((e)=>{
-  return(<><p className="chatingp">  {e.name}   :) {"          "}   {e.message}</p></>)
+  return(<><p className="chatingp">  {e.name}   {":)"} {"          "}   {e.message}</p></>)
    })}
             </div>
             <div className="sending">

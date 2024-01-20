@@ -8,6 +8,10 @@ const Roomentry = ({socket,email,setemail}) => {
     const [room,setroom]=useState(null);
     const navigate=useNavigate();
     function handleclick(){
+      if(room==null || email==null  ){
+        alert("Input valid information 😅");
+return;
+      }
         socket.emit("chat",{email,room});
        navigate("/video");
 
@@ -55,14 +59,19 @@ useEffect(()=>{
   
 <fieldset>
   <legend>RoomID</legend>
-  <input value={90} type="number" id='room' name='room' placeholder='Room' onChange={(e)=>{setroom(e.target.value)}}></input>
+  <input value={room} type="number" id='room' name='room' placeholder='Room' onChange={(e)=>{setroom(e.target.value)}}></input>
 </fieldset>
   
    
     
   
-   <div className="generateroom">
-    <p>Generate roomId</p>
+   <div className="generateroom"  onClick={()=>{
+let num=   (Math.floor( (Math.random()*10000))).toString();
+
+setroom(num);
+}}>
+    <p 
+    >  Generate roomId</p>
    </div>
   
    <button  onClick={handleclick} >Let's Go </button>

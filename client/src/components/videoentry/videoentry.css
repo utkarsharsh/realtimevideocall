@@ -55,6 +55,7 @@ position: relative;
     display: flex;
     height: 90%;
     position: relative;
+    overflow: hidden;
 }
 .mystream{
     position:absolute;
@@ -91,7 +92,7 @@ position: relative;
 }
 .chating{
     width: 100%;
-    height: 95%;
+    height: 93%;
     overflow-y:auto ;
     display: flex;
     flex-direction: column;
@@ -108,7 +109,7 @@ position: relative;
 
 .sending{
     width: 100%; 
-    height: 5%;
+    height: 7%;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -255,7 +256,15 @@ left: 554px;
 opacity: 0;
     }
 }
-
+.nani{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 56777;
+    top: 5px;
+    visibility:hidden;
+    cursor: pointer;
+}
 
 
 
@@ -265,4 +274,45 @@ opacity: 0;
     .preanimation{
 width: 100%;
     }
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+
+    .chatwraper{
+        transform: translateX(770%);
+        position: absolute;
+        transition: 2s ease-in-out;
+        width: 97%;
+        z-index: 101;
+}
+.check{
+   right:0px;
+   transform: translateX(0%);
+
+}
+.nani{
+    
+    visibility:visible;
+}
+.remoteplayer{
+    width: 100%;
+}
+
+}
+@media only screen and (max-width: 400px) {
+
+    .chatwraper{
+        transform: translateX(770%);
+        position: absolute;
+        transition: 2s ease-in-out;
+        width: 95%;
+        z-index: 101;
+}
+.check{
+   right:0px;
+   transform: translateX(0%);
+
+}
 }

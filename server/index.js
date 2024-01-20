@@ -1,6 +1,18 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import dotenv from 'dotenv'
+import express from 'express'
+dotenv.config()
+const app=express();
+
+
+
  const httpServer = createServer();
+
+app.get('*',()=>{
+
+});
+
 const io = new Server(httpServer, {
   cors:true,
 });
@@ -36,4 +48,5 @@ socket.on("makereact",({index})=>{
     io.emit("reactresponse", {index});
 })
 });
-httpServer.listen(3000);
+
+httpServer.listen(3000 || process.env.Port);
