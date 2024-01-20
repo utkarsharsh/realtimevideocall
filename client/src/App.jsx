@@ -10,6 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [email,setemail]=useState(null);
+
   const socket = io("http://localhost:3000/");
   useEffect(
     ()=>{
@@ -28,8 +30,8 @@ function App() {
     <>
 <BrowserRouter>
 <Routes>
-  <Route path='/' element={<Roomentry socket={socket}/>} />
-  <Route path='video' element={<Videoenty socket={socket}/>} />
+  <Route path='/' element={<Roomentry socket={socket} email={email} setemail={setemail}/>} />
+  <Route path='video' element={<Videoenty socket={socket}   email={email} setemail={setemail}/>} />
     </Routes>
   </BrowserRouter>
     </>

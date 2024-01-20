@@ -145,15 +145,16 @@ legend{
     top: 0px;
     left: 0px;
     z-index: -70;
-    background-color: #000000;
+    background-color: #eff9eb;
 }
 .bubulles span
 {
+
 width: 12px;
 height: 12px;
-background: #259737;
+background: #a3eeae;
 border-radius: 50%;
-box-shadow:0 0 0 10px #94f2a2,0 0 40px #cff5d5,0 0 10px #d9aeae;
+box-shadow:0 0 0 10px #baf3c3,0 0 40px #cff5d5,0 0 10px #d9aeae;
 position: relative;
 left: 11px;
 top: -100px;
@@ -165,14 +166,15 @@ z-index: -1;
 .bubulles span:nth-child(even){
     width: 12px;
 height: 12px;
-background:coral;
+background:rgb(234, 170, 147);
 border-radius: 50%;
-box-shadow:0 0 0 10px rgb(239, 148, 114),0 0 30px coral,0 0  60px #f38e8e;
+box-shadow:0 0 0 10px rgb(246, 171, 143),0 0 30px coral,0 0  60px #f38e8e;
 position: relative;
 left: 11px;
 top: -200px;
 margin-left: 1.2rem;
-animation: backgroundani 7s linear infinite;
+animation: backgroundani 3s linear infinite;
+animation-direction: alternate;
 }
 .tran{
    
@@ -183,10 +185,10 @@ animation: backgroundani 7s linear infinite;
 @keyframes backgroundani{
 
 0%{
-    transform: translateY(100vh) scale(0);
+    transform: translateY(110vh) scale(0.3);
 }
 100%{
-    transform: translateY(-1vh) scale(0.6);  
+    transform: translateY(-1vh) scale(0.8);  
 }
 
 }

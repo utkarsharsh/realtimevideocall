@@ -3,8 +3,8 @@ import { Socket } from 'socket.io-client';
 import { Navigate, useNavigate } from 'react-router-dom';
 import './roomentry.css'
 import a from '../../assets/70-d_1600x1200.png'
-const Roomentry = ({socket}) => {
-    const [email,setemail]=useState(null);
+const Roomentry = ({socket,email,setemail}) => {
+  
     const [room,setroom]=useState(null);
     const navigate=useNavigate();
     function handleclick(){
@@ -39,15 +39,15 @@ useEffect(()=>{
         <div className="loginright">
         
           <div className="logoname">
-           <h1> Utkarsh</h1>
+           <h1> Anime Talk</h1>
           </div>
           <div className="welcome">
-            <h2>Welcome to videoapp</h2>
+            <h2>Welcome to animecall</h2>
           </div>
     <div className="input">
   <fieldset>
     <legend>Name</legend>
-    <input value={"ioo"} type="email" id='email' placeholder='Name' name='email' onChange={(e)=>{setemail(e.target.value)}}>
+    <input  type="email" id='email' placeholder='Name' name='email' onChange={(e)=>{setemail(e.target.value)}}>
    
    </input>
   </fieldset>

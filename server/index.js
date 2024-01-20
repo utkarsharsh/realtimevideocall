@@ -1,7 +1,6 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-
-const httpServer = createServer();
+ const httpServer = createServer();
 const io = new Server(httpServer, {
   cors:true,
 });
@@ -29,5 +28,12 @@ socket.on("nego:need",({to,offer})=>{
 socket.on("nego:last",({to,ans})=>{
   io.to(to).emit("nego:lasted",{from :socket.id,ans});
 });
+socket.on("message",({naam,data})=>{
+    io.emit("messaging", {naam,data});
+});
+socket.on("makereact",({index})=>{
+    console.log(index);
+    io.emit("reactresponse", {index});
+})
 });
 httpServer.listen(3000);

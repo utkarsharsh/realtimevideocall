@@ -2,8 +2,44 @@
 .mainbox{
     
     min-height: 100dvh;
-    background-color: rgb(230, 228, 228);
+    /* background-color: rgb(230, 228, 228); */
+    /* background-color: rgb(203 106 106);; */
+/* background-color: rgb(46, 46, 46); */
+position: relative;
 
+
+}
+.chating{
+    overflow-y:auto;
+    z-index: 67;
+  
+
+}
+.call{
+    position: absolute;
+
+}
+
+.mainbox::before{
+    filter: blur(6px);
+    position: absolute;
+   
+    width: 100%;
+    background-color: rgb(215, 52, 79);
+   content: ' ';
+   filter: blur(10px);
+    opacity: 1;
+    height: 100%;
+}
+.chatingp{
+    margin-left: 6px;
+    z-index: 78;
+ margin-top: 2px;
+ margin-bottom: 0.8rem;
+ padding: 0px;
+ color: rgb(255, 253, 253);
+    font-size: 1rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .mainboxin{
     display: flex;
@@ -17,14 +53,13 @@
 .stream{
     width: 100%;
     display: flex;
-    height: 100%;
+    height: 90%;
     position: relative;
 }
 .mystream{
     position:absolute;
-    left: 5px;
-    bottom: 0px;
-    
+    left: 9px;
+    bottom: -6px;
 }
 
 .player{
@@ -36,29 +71,93 @@
 }
 .chatwraper{
     width: 40%;
-    background-color: aliceblue;
-    padding: 6px;
-  margin-right: 6px;
-  border-radius: 23px;
+    
+    border: 3px solid white ; 
+    margin: 7px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.chatwraper::before{
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    
+    
+    
+    height: 100%;
 }
 .chating{
     width: 100%;
-    height: 90%;
+    height: 95%;
     overflow-y:auto ;
     display: flex;
     flex-direction: column;
 }
+.chatwraper img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    z-index: 0;
+   
+}
 
+.sending{
+    width: 100%; 
+    height: 5%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sending input{
+color: rgb(177, 171, 171);
+width: 90%;
+height: 100%;
+border-style: none;
+outline: none;
+padding: 4px;
+background-color: rgb(244, 238, 237);
+z-index: 3;
 
+}
+.callloader{
+    z-index: 5;
+    top:47%;
+    position: absolute;
+}
+.callloader img{
+    width: 100px;
+    height: 100px;
+}
+.sending button{
+    color: rgb(100, 99, 99);
+    width: 10%;
+    height: 120%;
+    border-style: none;
+outline: none;
+padding: 0px;
+background-color: rgb(244, 238, 237);
+margin: 0px;
+color: white;
+background-color: brown;
+z-index: 3;
+    }
+
+/* //rgb(203 106 106); */
 
 .remoteplayer
 {
     width: 60%;
     height: 100%;
-  padding: 6px;
-  margin-bottom: 4px;
+  
+  border: 3px solid rgb(234, 224, 224) ; 
+  margin: 7px;
+  /* margin-bottom: 4px; */
   overflow: hidden;
 
 }
@@ -80,7 +179,7 @@
 }
 video{
     object-fit: cover;
-    border-radius: 23px;
+    
 }
 .gif img{
     width: 100%;
@@ -108,6 +207,57 @@ video{
     z-index: 1000;
     bottom: 100px;
 }
+.react {
+    position: absolute;
+    z-index: 100;
+left: 0.6%;
+top: 2%;
+display: flex;
+gap: 7px;
+flex-direction: column;
+}
+.react p{
+background-color: whitesmoke;
+font-size: 2rem;
+margin: 4px;
+position: relative;
+padding: 0px;
+border: 2px solid red;
+height:50px;
+text-align: center;
+width: 50px;
+transition: 0.4s ease-in;
+cursor: pointer;
+}
+.react p:hover{
+font-size: 2.4rem;
+}
+
+
+
+.saktiman{
+    position: absolute;
+    animation-name: reaction;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes reaction{
+    0%{
+       left:1%;
+       transform: rotate(0deg);
+      opacity: 1;
+    }
+    100%{
+        transform: rotate(360deg);
+left: 554px;
+opacity: 0;
+    }
+}
+
+
+
 
 
 
