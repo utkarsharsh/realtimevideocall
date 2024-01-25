@@ -12,7 +12,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [email,setemail]=useState(null);
 
-  const socket = io("http://localhost:3000",{forceNew: true,
+  const socket = io("https://real-time-chating-videocall.onrender.com",{forceNew: true,
   transports: ["polling"],});
   useEffect(
     ()=>{

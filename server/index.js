@@ -26,6 +26,9 @@ io.on("connection", (socket) => {
     socket.join(room);
   
  });
+ app.get("/",(req,res)=>{
+  res.send("Abcs");
+ })
 socket.on("usercallingto",({to,offer})=>{
   io.to(to).emit("callutha",{from:socket.id,offer});
 })
