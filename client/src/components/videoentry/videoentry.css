@@ -206,7 +206,8 @@ video{
     height: 35px;
     position: absolute;
     z-index: 1000;
-    bottom: 100px;
+    left: 50%;
+    top:50%
 }
 .react {
     position: absolute;
@@ -315,4 +316,17 @@ width: 100%;
    transform: translateX(0%);
 
 }
+}
+@media only screen and (max-width: 500px) {
+    .sendstream{
+        left: 30%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .sendstream{
+        left: 30%;
+        width: 100px;
+        height: 75px;
+        top: 45%;
+    }
 }

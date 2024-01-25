@@ -12,11 +12,8 @@ function App() {
   const [count, setCount] = useState(0);
   const [email,setemail]=useState(null);
 
-  const socket = io("https://backendforvideoapp.onrender.com",{
-    withCredentials: true,
-    extraHeaders: {
-      "my-custom-header": "yyyyyy"
-    }});
+  const socket = io("http://localhost:3000",{forceNew: true,
+  transports: ["polling"],});
   useEffect(
     ()=>{
       socket.on("connection", () => {

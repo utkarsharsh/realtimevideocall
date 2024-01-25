@@ -2,27 +2,18 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import dotenv from 'dotenv'
 import express from 'express'
+import cors from 'cors'
 // import path from "path";
 dotenv.config()
 const app=express();
+app.use(cors);
 
 
-
- const httpServer = createServer((req, res) => {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.setHeader('Access-Control-Allow-Headers', 'my-custom-header, other-allowed-header');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Credentials', true);});
+ const httpServer = createServer(app);
 
 
 const io = new Server(httpServer, {
-  cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true
-  }
+ cors:true
 });
 let socketmap=new Map();
 let mapsocket=new Map();
