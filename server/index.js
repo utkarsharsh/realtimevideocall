@@ -2,21 +2,19 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import dotenv from 'dotenv'
 import express from 'express'
-import cors from 'cors'
+import  cors from 'cors'
 // import path from "path";
 dotenv.config()
 const app=express();
-app.use(cors());
-
-
- const httpServer = createServer(app);
-
-
+app.use(cors({
+  origin: "http://localhost:5173/",
+  methods: ["GET", "POST"]
+}));
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
  cors:true
 });
-let socketmap=new Map();
-let mapsocket=new Map();
+
 
 io.on("connection", (socket) => {
  console.log(socket.id);
@@ -26,9 +24,6 @@ io.on("connection", (socket) => {
     socket.join(room);
   
  });
- app.get("/",(req,res)=>{
-  res.send("Abcs");
- })
 socket.on("usercallingto",({to,offer})=>{
   io.to(to).emit("callutha",{from:socket.id,offer});
 })

@@ -11,9 +11,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0);
   const [email,setemail]=useState(null);
-
-  const socket = io("https://real-time-chating-videocall.onrender.com",{forceNew: true,
-  transports: ["polling"],});
+  const url= import.meta.env.VITE_URL;
+  const socket = io(url);
+  console.log(url);
   useEffect(
     ()=>{
       socket.on("connection", () => {
